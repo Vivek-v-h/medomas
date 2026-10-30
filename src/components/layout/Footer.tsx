@@ -21,13 +21,13 @@ export default function Footer() {
           
           {/* Brand Info (5 cols) */}
           <div className="lg:col-span-5">
-            <Link href="/" className="inline-block p-2.5 rounded-2xl bg-white/95 shadow-sm">
+            <Link href="/" className="inline-block group" aria-label="Medomas Healthcare Home">
               <Image
-                src="/logo/medomas-logo.png"
+                src="/logo/medomas-logo-light.png"
                 alt="Medomas Healthcare Pvt. Ltd."
-                width={120}
-                height={108}
-                className="h-16 w-auto object-contain"
+                width={160}
+                height={144}
+                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
 
