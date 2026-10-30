@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MEDOMAS HEALTHCARE PVT. LTD.
+## Corporate Website & Pharmaceutical Catalogue
 
-## Getting Started
+> **Tagline:** Advancing Healthcare Through Quality, Science & Innovation  
+> **Headquarters:** AP/631/A, Ramapuram, Thannimoodu P.O., Thiruvananthapuram, Kerala, India – 695123  
+> **Phones:** +91 9645222639, +91 8921399610
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Project Architecture & Stack
+
+* **Framework:** Next.js 16 (App Router + Turbopack)
+* **Language:** TypeScript 5 (Strict Mode)
+* **Styling:** Tailwind CSS v4 + Design System root variables
+* **Animations:** Motion (`motion/react`) scroll parallax & staggered entrances
+* **Validation:** React Hook Form + Zod
+* **Icons:** Lucide React
+
+---
+
+### Routes & Information Architecture
+
+| Route | Page Title / Role | Status |
+|---|---|---|
+| `/` | Cinematic Video Hero & Corporate Showcase | Complete |
+| `/about` | Corporate Heritage, Kerala Roots & Governance | Complete |
+| `/divisions` | Division Overview | Complete |
+| `/divisions/meddent` | MEDDENT (12 Pharmaceutical Formulations) | Complete |
+| `/divisions/ayumed` | AYUMED (Ayurvedic & Herbal Development) | Complete |
+| `/products` | Interactive Searchable Product Catalogue | Complete |
+| `/products/[slug]` | Dedicated Product Detail Pages (Pre-rendered) | Complete (12 Slugs) |
+| `/collaborations` | 22 Partner Facilities & Nature Scientific R&D | Complete |
+| `/careers` | Career Opportunities & Teamwork Culture | Complete |
+| `/contact` | Working Enquiry Form & Head Office Details | Complete |
+| `/privacy-policy` | Data Governance & Privacy Terms | Complete |
+| `/disclaimer` | Medical, Pharmaceutical & Regulatory Disclaimer | Complete |
+| `/sitemap.xml` | Dynamic XML Sitemap | Generated |
+| `/robots.txt` | Search Engine Directives | Generated |
+
+---
+
+### Product Packaging & Images: How to Edit
+
+All 12 products have placeholder packaging artworks in SVG format located at:
+```text
+medomas/public/images/products/[slug].svg
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To update or replace any product pack shot with official photography or 3D renders:
+1. Place your PNG/JPG image in `public/images/products/` (e.g. `public/images/products/acyfox-sp.png`).
+2. Open `src/data/products.ts`.
+3. Update the `image` field for that product:
+   ```ts
+   image: "/images/products/acyfox-sp.png",
+   ```
+4. Update packaging details such as `packSize`, `storageCondition`, or `tagline` directly in `src/data/products.ts`. All product pages and cards will automatically reflect the change.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Running Development & Production Builds
 
-## Learn More
+#### Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+#### Lint Verification
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Production Build
+```bash
+npm run build
+```
+Generates 30 static pages with zero errors.
